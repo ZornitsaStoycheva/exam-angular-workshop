@@ -18,8 +18,7 @@ export class HeaderComponent {
   }
 
   logout() :void{
-    // this.userService.logout();
-    // this.router.navigate(['/home'])
+
     this.userService.logout().subscribe({
       next: () => {
         this.router.navigate(['/login']);

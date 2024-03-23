@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
 
-router.get('/', async (req, res) => {
-    const users = await userService.getUsers();
-    res.json(users)
-})
+// router.get('/', async (req, res) => {
+//     const users = await userService.getUsers();
+//     res.json(users)
+// })
 
 
 router.post('/register', async (req, res) => {
@@ -23,14 +23,21 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    debugger
+    const authData = req.body;
     try {
-        const user = await userService.login(req.body);
-        res.status(200).json(user);
+        const token = await userService.login(authData);
+        res.cookie('auth', token, { httpOnly: true });
+        res.json(token);
     } catch (err) {
         res.status(400)
             .json({message: err.message})
     }
+})
+
+router.post('/logout', async(req, res) => {
+    await req.clearCookie['auth'];
+    res.status(204)
+    .send({ message: 'Logged out!' });
 })
 
 router.get('/profile', async (req, res) => {

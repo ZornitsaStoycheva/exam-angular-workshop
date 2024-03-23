@@ -11,7 +11,7 @@ export interface Book {
     price: string,
     title: string,
     createdAt: string,
-    _onweId: string
+    owner: string
 }
 
 export interface BookId {

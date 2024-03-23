@@ -10,16 +10,32 @@ exports.create = async (userId, bookData) => {
         ...bookData
     })
 
-    await User.findByIdAndUpdate(userId, {$push: { createBook: createBook._id}});
+    //await User.findByIdAndUpdate(userId, {$push: { createBook: createBook._id}});
 
     return createBook;
 }
 
 exports.getOne = (bookId) => Book.findById(bookId);
 
-exports.update = (bookId, bookData) => Book.findByIdAndUpdate(bookId, bookData);
+exports.update = (bookId, bookData) => Book.findByIdAndUpdate(bookId, bookData, { runValidators: true });
 
 exports.delete = (bookId) => Book.findByIdAndDelete(bookId);
+
+exports.getAllPosts = (ownerId) => Book.find({ owner: ownerId}).populate('owner');
+
+exports.addLikes = async (bookId, userId) => {
+    const book = await this.getOne(bookId);
+    const isValid = book.likes.some((like) => console.log(like));//vote?.toString() === userId);
+    console.log(isValid)
+    if(!isValid) {
+        return;
+    }
+
+    book.likes.push(userId);
+    return book.save();
+}
+
+exports.getAllPosts = (ownerId) => Book.find({ owner: ownerId}).populate('owner');
 
 exports.myBooks = async (qs) => {
     let query = Book.find();

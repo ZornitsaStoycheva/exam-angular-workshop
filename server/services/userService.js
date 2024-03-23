@@ -19,8 +19,9 @@ exports.register = async (authData) => {
     return token;
 }
 
-exports.login = async (email, password) => {
-    const user = await User.findOne({ email });
+exports.login = async (authData) => {
+    const {email, password } = authData;
+    const user = await User.findOne({ email: authData.email });
 
     if(!user) {
         throw new Error('Cannot find email or password!')
@@ -37,13 +38,13 @@ exports.login = async (email, password) => {
         email: user.email
     }
 
-    const token = await generationToken(user)
-    return token;
+    //const token = await generationToken(payload)
+    return jwt.sign(payload, SECRET, {expiresIn: '2h'});
 }
 
 function generationToken(user) {
     const payload = {
-        _id: user.id,
+        _id: user._id,
         username: user.username,
         email: user.email
     }

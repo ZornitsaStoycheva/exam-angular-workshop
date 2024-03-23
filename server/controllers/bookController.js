@@ -7,11 +7,14 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+    const book = req.body;
+
     try {
-        await bookService.create({
-            ...req.body,
-            _ownerId: req.user._id});
-        res.status(204).end();
+        const token = await bookService.create(req.user._id, book)
+        // await bookService.create({
+        //     ...req.body,
+        //     owner: req.user._id});
+        res.status(204).json(token)
 
     } catch (err) {
         res.status(400)
@@ -56,8 +59,22 @@ router.delete('/:bookId/delete', async (req, res) => {
 
 router.get('/myBooks', async (req, res) => {
     try {
-        const books = await bookService.myBooks();
-        res.json(books)
+        const { user } = req;
+        const book = await bookService.getAllPosts(user?._id);
+        const owner = {owner: book[0].owner?.username};
+        res.json(book)
+    } catch (err) {
+        res.status(400)
+        .json({ message: err.message })
+    }
+})
+
+router.get('/:bookId/like', async (req, res) => {
+    try {
+        const { bookId } = req.params;
+        console.log(postId)
+        const book = await bookService.addLikes(bookId, req.user?._id);
+        res.json(book)
     } catch (err) {
         res.status(400)
         .json({ message: err.message })

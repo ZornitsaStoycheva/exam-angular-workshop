@@ -13,6 +13,7 @@ import { ErrorComponent } from './error/error.component';
 import { BooksListBuyComponent } from './books-list-buy/books-list-buy.component';
 import { HighlightBooksListDirective } from './highlight-books-list.directive';
 import { appInterceptorProvider } from './app-interceptors';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -23,8 +24,7 @@ import { appInterceptorProvider } from './app-interceptors';
     ErrorComponent,
     BooksListBuyComponent,
     HighlightBooksListDirective,
-    
-    
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

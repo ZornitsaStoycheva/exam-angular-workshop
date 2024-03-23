@@ -35,11 +35,13 @@ const bookSchema = new mongoose.Schema({
     createdAt: {
         type: Date
       },
-    _ownerId: {
+    owner: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
     },
-    likes: [],
+    likes: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'User'}],
     buyBook: []
 })
 

@@ -13,12 +13,12 @@
               
   
               <label for="password">Password</label>
-              <input type="password" id="password" name="current-password" value="" #inputCurrentPassword="ngModel" ngModel required minlength="3" maxlength="15">
-              <div *ngIf="inputCurrentPassword.touched">
-                <p *ngIf="inputCurrentPassword.errors?.['required']" class="error">Password is required!</p>
-                <p *ngIf="inputCurrentPassword.errors?.['email']" class="error">Password is not valid!</p>
-                <p *ngIf="inputCurrentPassword.errors?.['minlength']" class="error">Min length is 3!</p>
-                <p *ngIf="inputCurrentPassword.errors?.['maxlength']" class="error">Max length is 15!</p>
+              <input type="password" id="password" name="password" value="" #inputPassword="ngModel" ngModel required minlength="3" maxlength="15">
+              <div *ngIf="inputPassword.touched">
+                <p *ngIf="inputPassword.errors?.['required']" class="error">Password is required!</p>
+                <p *ngIf="inputPassword.errors?.['email']" class="error">Password is not valid!</p>
+                <p *ngIf="inputPassword.errors?.['minlength']" class="error">Min length is 3!</p>
+                <p *ngIf="inputPassword.errors?.['maxlength']" class="error">Max length is 15!</p>
               </div>
               
               <button [disabled]="form.invalid" [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue'}">Login</button>

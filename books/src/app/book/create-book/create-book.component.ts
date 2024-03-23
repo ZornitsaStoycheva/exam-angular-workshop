@@ -20,31 +20,41 @@ export class CreateBookComponent {
    price: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]]})
   
 
-    createHadler() {
-    //console.log(this.createForm.value);
-    debugger
-    if(!this.createForm) {
+  //   createHadler() {
+  //   //console.log(this.createForm.value);
+    
+  //   if(!this.createForm) {
+  //     return;
+  //   }
+
+  //   const form = this.createForm;
+
+  //   if(form.invalid) {
+  //     console.log('Form is invalid!');
+  //     return;
+  //   }
+  //   console.log(form.value)
+
+  //   const { title, author, image, description, price } = form.value;
+  //   form.reset();
+  // }
+
+  // createBook(title: string, author: string, image: string, price: string, description: string) {
+    
+  //   //console.log({ title, author, image, description, price})
+  //   this.apiService.createBook( title, author, image, description, price).subscribe((data) => {
+  //     console.log({data})
+  //     this.router.navigate(['/books'])
+  //   })
+  // }
+  createHadler():void {
+    if (this.createForm.invalid) {
       return;
     }
 
-    const form = this.createForm;
-
-    if(form?.invalid) {
-      console.log('Form is invalid!');
-      return;
-    }
-    console.log(form.value)
-
-    const { title, author, image, description, price } = form?.value;
-    form.reset();
-  }
-
-  createBook(ev: Event, title: string, author: string, image: string, price: string, description: string) {
-    ev.preventDefault();
-    //console.log({ title, author, image, description, price})
-    this.apiService.createBook( title, author, image, description, price).subscribe((data) => {
-      console.log({data})
-      this.router.navigate(['/books'])
-    })
+    const { title, author, image, description, price } = this.createForm.value;
+    this.apiService.createBook(title!, author!, image!, description!, price!).subscribe(() => {
+      this.router.navigate(['/books']);
+    });
   }
 }

@@ -45,7 +45,7 @@
           </div>
         
 
-        <button [disabled]="createForm.invalid" [style]="{ backgroundColor: createForm.invalid ? 'grey' : 'blue'}" (click)="createBook($event, inputTitle.value, inputAuthor.value, inputImage.value, inputPrice.value, inputDescription.value)">Add</button>
+        <button [disabled]="createForm.invalid" [style]="{ backgroundColor: createForm.invalid ? 'grey' : 'blue'}" type="submit">Add</button>
     </form>
   
 </div>
