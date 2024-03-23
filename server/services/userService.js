@@ -3,6 +3,10 @@ const { SECRET } = require('../config/config');
 const bcrypt = require('bcrypt');
 const jwt = require('../lib/jwt');
 
+exports.getProfile = (userId) => User.findById(userId);
+
+exports.editProfile = (userId) => User.findByIdAndUpdate(userId);
+
 exports.register = async (authData) => {
     const {email, password, rePassword } = authData;
     const user = await User.findOne({ email: authData.email });
@@ -63,3 +67,4 @@ function generationToken(user) {
 
     return jwt.sign(payload, SECRET, {expiresIn: '2h'});
 }
+

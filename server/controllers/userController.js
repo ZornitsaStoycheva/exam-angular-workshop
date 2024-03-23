@@ -50,7 +50,7 @@ router.post('/logout', auth, (req, res) => {
 
 router.get('/profile', async (req, res) => {
     try {
-        const id = await userService.getOne(req.params._id);
+        const id = await userService.getProfile(req.params._id);
         res.json(id);
     } catch (err) {
         res.status(400)

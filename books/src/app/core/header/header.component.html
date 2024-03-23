@@ -7,15 +7,15 @@
             <div *ngIf="isLoggedIn">
                 <a routerLink="/books/create">Add Book</a>
             <a routerLink="/myBooks">My publish</a>
-            <a routerLink="/profile">{{username}}`s Profile</a>
+            <a routerLink="/auth/profile">{{username}}`s Profile</a>
             <div (click)="logout()">
                 <a href="#">Logout</a>
                 </div>
             </div>
            
             <div *ngIf="!isLoggedIn">
-                <a routerLink="/login">Login</a>
-                <a routerLink="/register">Register</a>
+                <a routerLink="/auth/login">Login</a>
+                <a routerLink="/auth/register">Register</a>
             </div>
             
             </div>

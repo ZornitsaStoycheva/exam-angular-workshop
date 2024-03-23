@@ -44,8 +44,7 @@ export class UserService implements OnDestroy {
     
     return this.http.post<User>(`/api/users/login`, { email, password })
     .pipe(tap((user) => this.user$$.next(user)))
-    
-   }
+  }
 
    register(email: string, username: string, password: string, rePassword: string) {
     const { apiUrl } = environment;
@@ -54,12 +53,18 @@ export class UserService implements OnDestroy {
     .pipe(tap((user) => this.user$$.next(user)))
    }
 
+   getProfile() {
+    return this.http.get<User>('/api/users/profile').pipe(tap((user) => this.user$$.next(user)))
+   }
+
+   updateProfile(username:string, email: string) {
+    return this.http.put<User>('/api/users/profile', { username, email })
+    .pipe(tap((user) => this.user$$.next(user)))
+   }
+
    logout() {
-    // this.user = undefined;
-    // localStorage.removeItem(this.USER_KEY);
     return this.http.post<User>('/api/users/logout', {})
     .pipe(tap((user) => this.user$$.next(undefined)))
-    //.pipe(tap((user) => this.user$$.next(undefined)))
    }
 
    ngOnDestroy(): void {

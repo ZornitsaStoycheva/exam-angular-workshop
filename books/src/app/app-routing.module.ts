@@ -6,6 +6,9 @@ import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   {path: 'home', component: MainComponent},
+  {
+    path: 'auth', loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
+  },
   {path: '**', redirectTo: '/404'},
   {path: '404', component: ErrorComponent}
 ];

@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Prifile } from '../../types/user'
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
+ 
 
   showEditMode: boolean = false;
   profile: Prifile = {
-    username: 'Peter',
-    email: 'peter@abv.bg'
+    username: '',
+    email: ''
   }
 
   onEdit(): void {
@@ -25,7 +27,12 @@ export class ProfileComponent {
       return;
     }
     this.profile = this.form.value as Prifile;
-    this.onEdit();
+    const { username, email } = this.profile;
+
+    this.userService.updateProfile(username, email).subscribe(() => {
+      this.onEdit();
+    })
+  
   }
 
   onCancel(ev: Event) {
@@ -34,7 +41,20 @@ export class ProfileComponent {
     this.onEdit();
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
+  ngOnInit(): void {
+    const { username, email } = this.userService.user!;
+
+    this.profile = {
+      username,
+      email
+    }
+
+    this.form.setValue({
+      username,
+      email
+    })
+  }
 
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(3)]],

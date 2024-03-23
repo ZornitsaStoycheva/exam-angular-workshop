@@ -14,6 +14,7 @@ import { BooksListBuyComponent } from './books-list-buy/books-list-buy.component
 import { HighlightBooksListDirective } from './highlight-books-list.directive';
 import { appInterceptorProvider } from './app-interceptors';
 import { HomeComponent } from './home/home.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 @NgModule({
@@ -25,12 +26,13 @@ import { HomeComponent } from './home/home.component';
     BooksListBuyComponent,
     HighlightBooksListDirective,
     HomeComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     HttpClientModule,
-    UserModule,
+    //UserModule,
     BookModule,
     AppRoutingModule,
     
