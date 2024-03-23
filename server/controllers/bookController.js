@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const bookService = require('../services/bookService');
+const { auth } = require('../middlewares/authMiddleware');
 
 router.get('/', async (req, res) => {
     const books = await bookService.getAll();
     res.json(books);
 })
 
-router.post('/', async (req, res) => {
+router.post('/create', auth, async (req, res) => {
     const book = req.body;
 
     try {

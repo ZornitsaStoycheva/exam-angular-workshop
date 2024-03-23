@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { UserId } from '../../types/user';
 
 @Component({
   selector: 'app-create-book',
@@ -47,10 +48,11 @@ export class CreateBookComponent {
   //     this.router.navigate(['/books'])
   //   })
   // }
-  createHadler():void {
+  create():void {
     if (this.createForm.invalid) {
       return;
     }
+  
 
     const { title, author, image, description, price } = this.createForm.value;
     this.apiService.createBook(title!, author!, image!, description!, price!).subscribe(() => {

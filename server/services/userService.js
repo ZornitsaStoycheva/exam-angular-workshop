@@ -42,6 +42,18 @@ exports.login = async (authData) => {
     return jwt.sign(payload, SECRET, {expiresIn: '2h'});
 }
 
+exports.logout = async (req, res) => {
+    const token = res.cookies['auth'];
+    const user = await User.create({token})
+    .then(() => {
+        res.clearCookie('auth')
+        .status(204)
+        .end();
+    }).catch(err => res.send(err))
+
+    return user;
+}
+
 function generationToken(user) {
     const payload = {
         _id: user._id,

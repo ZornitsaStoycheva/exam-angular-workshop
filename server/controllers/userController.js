@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
+const { auth } = require('../middlewares/authMiddleware');
 
 // router.get('/', async (req, res) => {
 //     const users = await userService.getUsers();
@@ -34,11 +35,18 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.post('/logout', async(req, res) => {
-    await req.clearCookie['auth'];
+router.post('/logout', auth, (req, res) => {
+    try {
+         res.clearCookie('auth');
     res.status(204)
-    .send({ message: 'Logged out!' });
+    .send({ message: 'Logged out!' }).end();
+    } catch (err) {
+        res.status(400)
+            .json({message: err.message})
+    }
+    
 })
+//router.use('/logout', userService.logout)
 
 router.get('/profile', async (req, res) => {
     try {

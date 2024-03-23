@@ -27,7 +27,7 @@ export class ApiService {
   createBook(title: string, author: string, image: string, description: string, price: string) {
     const { apiUrl } = environment;
     const payload = { title, author, image, description, price }
-    return this.http.post<Book[]>(`/api/books`, { payload})
+    return this.http.post<Book[]>(`/api/books/create`, { payload})
   }
 
   getMyPublish() {
