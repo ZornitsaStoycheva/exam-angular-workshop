@@ -50,7 +50,7 @@ export class UserService implements OnDestroy {
 
     // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user))
     //return this.http.post('login', { email, password })
-    return this.http.post<User>(`${apiUrl}/login`, { email, password })
+    return this.http.post<User>(`api/login`, { email, password })
    // .pipe(tap((user) => this.user$$.next(user)))
     
    }

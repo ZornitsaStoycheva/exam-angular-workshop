@@ -15,12 +15,6 @@ const { apiUrl } = environment;
             withCredentials: true,
             })
        } 
-        // req = req.clone({
-        //     setHeaders:{
-        //         'Content-Type': 'aplication/json'
-        //     }
-        // })
-        
         
         return next.handle(req);
     }

@@ -30,7 +30,7 @@ router.get('/:bookId', async (req, res) => {
     }
 })
 
-router.put('/:bookId', async (req, res) => {
+router.put('/:bookId/edit', async (req, res) => {
     try {
         const bookId = req.params.bookId;
         const book = req.body;
@@ -43,7 +43,7 @@ router.put('/:bookId', async (req, res) => {
     }
 })
 
-router.delete('/bookId', async (req, res) => {
+router.delete('/:bookId/delete', async (req, res) => {
     try {
         await bookService.delete(req.params.bookId);
         res.status(204).end();

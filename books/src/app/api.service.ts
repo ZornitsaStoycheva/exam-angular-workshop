@@ -13,7 +13,6 @@ export class ApiService {
 
   getBooks() {
     const { apiUrl } = environment;
-    //const limitFilter = limit ? `?limit=${limit}` : '';
     return this.http.get<Book[]>(`${apiUrl}/books`);
   }
 
