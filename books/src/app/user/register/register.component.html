@@ -1,0 +1,39 @@
+<div class="register">
+    <h2>Register</h2>
+          <form [formGroup]="registerForm" (ngSubmit)="register()" class="register-form">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" value="" formControlName="email" minlength="3" maxlength="15">
+
+              <div *ngIf="registerForm.get('email')?.touched">
+                <div *ngIf="registerForm.get('email')?.errors?.['required']" class="error">Email is required!</div>
+                <div *ngIf="registerForm.get('email')?.errors?.['email']" class="error">Email not is valid!</div>
+                <div *ngIf="registerForm.get('email')?.errors?.['minlength']" class="error">Min length is 3!</div>
+                <div *ngIf="registerForm.get('email')?.errors?.['maxlength']" class="error">Max length is 15!</div>
+              </div>
+
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" value="" formControlName="username" minlength="3" maxlength="15">
+              <div *ngIf="registerForm.get('username')?.touched">
+                <div *ngIf="registerForm.get('username')?.errors?.['required']" class="error">Username is required!</div>
+                <div *ngIf="registerForm.get('username')?.errors?.['minlength']" class="error">Min length is 3!</div>
+                <div *ngIf="registerForm.get('username')?.errors?.['maxlength']" class="error">Max length is 15!</div>
+              </div>
+  
+              <ng-container formGroupName="passGroup">
+
+                <label for="password">Password</label>
+              <input type="password" id="password" name="password" value="" formControlName="password" minlength="3" maxlength="15">
+              
+  
+              <label for="rePassword">Repeat Pass</label>
+              <input type="password" id="rePassword" name="rePassword" value="" formControlName="rePassword" minlength="3" maxlength="15">
+              
+                <ng-container *ngIf="registerForm.get('passGroup')?.get('rePassword')?.touched">
+                <div *ngIf="registerForm.get('passGroup')?.errors?.['matchPasswordValidator']
+                || registerForm.get('passGroup')?.errors?.['required']" class="error">Password miss match!</div>
+                </ng-container>
+              </ng-container>
+              <button [disabled]="registerForm.invalid" [style]="{ backgroundColor: registerForm.invalid ? 'grey' : 'blue'}" type="submit">Register</button>
+              <p class="message">Already registered? <a routerLink="/login">Login</a></p>
+          </form>
+  </div>

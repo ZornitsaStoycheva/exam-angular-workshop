@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Books Story</title>
+</head>
+<body>
+    
+  <header>
+    <h1>Books Story</h1>
+    <nav>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Books</a>
+            <a href="#">Add Book</a>
+            <a href="#">My publish</a>
+            <a href="#">Profile</a>
+            <a href="#">Logout</a>
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+            </div>
+    </nav>
+  </header>
+
+      <div class="edit-title">
+        <form class='editForm' method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="">
+                <p class="error">Title is required!</p>
+                <p class="error">Min length is 3!</p>
+                <p class="error">Max lenhth is 30!</p>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="">
+                <p class="error">Author is required!</p>
+                <p class="error">Min length is 3!</p>
+                <p class="error">Max lenhth is 15!</p>
+
+            <label for="image">Image:</label>
+            <input type="text" id="image" name="image" value="">
+                <p class="error">Image is required!</p>
+                <p class="error">Min length is 3!</p>
+                <p class="error">Max lenhth is 50!</p>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" value="">     
+                <p class="error">Email is required!</p>
+                <p class="error">Min length is 3!</p>
+                <p class="error">Max lenhth is 150!</p>  
+            
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" value="">
+                <p class="error">Price is required!</p>
+                <p class="error">Min length is 2!</p>
+                <p class="error">Max lenhth is 10!</p>
+
+            <button type="submit">Edit</button>
+        </form>
+      </div>
+
+      <footer>
+        <p>This application is made for use only for the examination of Angular on SoftUni!.................................................@2024-Angular</p>
+      </footer>
+</body>
+</html>

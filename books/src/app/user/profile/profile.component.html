@@ -1,0 +1,40 @@
+<div class="profile">
+    <div class="profile-container">
+        <div><i class="fa-solid fa-user"></i></div>
+        <ng-container *ngIf="!showEditMode">
+        <p>{{profile.username}}</p>
+        <p>{{profile.email}}</p>
+        
+        <button (click)="onEdit()" type="submit">Edit</button>
+        </ng-container>
+
+        <ng-container *ngIf="showEditMode">
+          <form [formGroup]="form" (ngSubmit)="saveProfileHandle()" class="profile-container-form">
+            <label>Username</label>
+          <input type="text" id="username" name="username" [value]="profile.username" formControlName="username" minlength="3">
+
+          <ng-container *ngIf="form.get('username')?.touched">
+            <p *ngIf="form.get('username')?.errors?.['required']" class="error">Username is required!</p>
+            <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">Min length is 3!</p>
+          </ng-container>
+
+          <label>Email</label>
+          <input type="text" name="email" id="email" [value]="profile.email" formControlName="email">
+
+          <ng-container *ngIf="form.get('email')?.touched">
+            <p *ngIf="form.get('email')?.errors?.['required']" class="error">Email is required!</p>
+            <p *ngIf="form.get('email')?.errors?.['email']" class="error">Email is not valid!!</p>
+            <p *ngIf="form.get('email')?.errors?.['minlength']" class="error">Min length is 3!</p>
+          </ng-container>
+          
+            <button type="submit" (click)="onCancel($event)">Cancel</button>
+            <button type="submit">Save</button>
+            </form>
+        </ng-container>
+        
+    </div>
+  </div>
+
+  
+
+ 

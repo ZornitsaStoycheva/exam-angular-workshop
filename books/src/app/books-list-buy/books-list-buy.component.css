@@ -1,0 +1,41 @@
+
+
+.buy-container{
+    text-align: center;
+    border: solid 1px black;
+    padding-left:  7px;
+    padding-top: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+    background-color: lightgray;
+}
+
+.buy-content{
+    display: flex;
+    
+}
+
+.buy-content .title{
+    font-size: 16px;
+    color: black;
+    padding-left: 6px;
+    position: absolute;
+    text-decoration: none;
+}
+
+/* .buy-content .title:hover{
+    background-color: white;
+} */
+
+.buy-content .count{
+    font-size: 16px;
+    color: red;
+    padding-left: 456px;
+}
+
+.highlight-books-list{
+    font-size: 30px;
+    background-color: lightgreen;
+    font-weight: 700;
+    cursor: pointer;
+}

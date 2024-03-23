@@ -1,0 +1,16 @@
+div{
+    text-align: center;
+    margin-top: 5px;
+    position: relative;
+    padding-bottom: 1%;
+    margin-top: 7%;
+}
+
+.err i{
+    font-size: 300px;
+
+}
+
+.err p{
+    font-size: 24px;
+}

@@ -1,0 +1,27 @@
+<div class="home">
+
+<div class="buy-container">
+    <h6>Best selling books</h6>
+    <div appHighlightBooksList *ngFor="let book of books" class="buy-content">
+        <p routerLink="/books/{{book._id}}" class="title">{{book.title}} - {{book.author}}</p>
+        <p class="count">{{book.buyBook.length}} count</p>
+    </div>
+    <!--- <div class="buy-content">
+        <a class="title" href="#">Buy book</a>
+        <p class="count">6 count</p>
+    </div>
+    <div class="buy-content">
+        <a class="title" href="#">Buy book</a>
+        <p class="count">6 count</p>
+    </div>
+    <div class="buy-content">
+        <a class="title" href="#">Buy book</a>
+        <p class="count">6 count</p>
+    </div>
+    <div class="buy-content">
+        <a class="title" href="#">Buy book</a>
+        <p class="count">6 count</p>
+    </div> -->
+</div>
+
+</div>

@@ -1,0 +1,57 @@
+.profile{
+    text-align: center;
+    margin-top: 24px;
+    position: relative;
+    padding-bottom: 1%;
+}
+
+.profile-container{
+    padding-top: 1%;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    height: auto;
+    width: 35%;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: lightgray;
+}
+
+
+.profile-container-form{
+   
+    width: 100%;
+   
+   
+}
+
+.profile-container label {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+.profile-container input {
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 17px;
+    margin: 12px;
+}
+
+.profile-container button{
+    font-size: 12px;
+    padding: 2px 14px;
+    background-color: darkcyan;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.fa-solid{
+    font-size: 95px;
+}
+.profile-container .error{
+    color: red;
+}

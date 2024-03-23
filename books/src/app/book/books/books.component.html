@@ -1,0 +1,54 @@
+
+<div class="books">
+    <div appHighlight *ngFor="let book of books" class="books-container">
+        <img src="{{book.image}}" alt="">
+        <h4>{{book.title}}</h4>
+        <p>{{book.author}}</p>
+        <p>{{book.description | shorten:152}}</p>
+        <button routerLink="/books/{{book._id}}">More Info</button>
+    </div>
+    <!-- <div class="books-container">
+        <img src="https://www.book.store.bg/prdimg/116041/zovyt-na-kukuvicata.avif" alt="">
+        <h4>Lorem</h4>
+        <p>Lorem, ipsum.
+        </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque doloribus possimus repellendus beatae, debitis saepe, tenetur ratione, nihil officia suscipit laboriosam dicta maxime consequuntur aliquam! Illum, nulla! Enim, quidem voluptates.</p>
+        <button>More Info</button>
+    </div>
+
+    <div class="books-container">
+        <img src="https://www.book.store.bg/prdimg/116041/zovyt-na-kukuvicata.avif" alt="">
+        <h4>Lorem</h4>
+        <p>Lorem, ipsum.
+        </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque doloribus possimus repellendus beatae, debitis saepe, tenetur ratione, nihil officia suscipit laboriosam dicta maxime consequuntur aliquam! Illum, nulla! Enim, quidem voluptates.</p>
+        <button>More Info</button>
+    </div>
+
+    <div class="books-container">
+        <img src="https://www.book.store.bg/prdimg/116041/zovyt-na-kukuvicata.avif" alt="">
+        <h4>Lorem</h4>
+        <p>Lorem, ipsum.
+        </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque doloribus possimus repellendus beatae, debitis saepe, tenetur ratione, nihil officia suscipit laboriosam dicta maxime consequuntur aliquam! Illum, nulla! Enim, quidem voluptates.</p>
+        <button>More Info</button>
+    </div>
+
+    <div class="books-container">
+        <img src="https://www.book.store.bg/prdimg/116041/zovyt-na-kukuvicata.avif" alt="">
+        <h4>Lorem</h4>
+        <p>Lorem, ipsum.
+        </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque doloribus possimus repellendus beatae, debitis saepe, tenetur ratione, nihil officia suscipit laboriosam dicta maxime consequuntur aliquam! Illum, nulla! Enim, quidem voluptates.</p>
+        <button>More Info</button>
+    </div>
+
+    <div class="books-container">
+        <img src="https://www.book.store.bg/prdimg/116041/zovyt-na-kukuvicata.avif" alt="">
+        <h4>Lorem</h4>
+        <p>Lorem, ipsum.
+        </p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque doloribus possimus repellendus beatae, debitis saepe, tenetur ratione, nihil officia suscipit laboriosam dicta maxime consequuntur aliquam! Illum, nulla! Enim, quidem voluptates.</p>
+        <button>More Info</button>
+    </div> -->
+  </div>

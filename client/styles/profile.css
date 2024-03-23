@@ -1,0 +1,43 @@
+.profile{
+    text-align: center;
+    margin-top: 5px;
+    position: relative;
+    padding-bottom: 1%;
+}
+
+.profile-container{
+    padding-top: 1%;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    height: auto;
+    width: 35%;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: lightgray;
+}
+
+.profile-container img{
+    width: 30%;
+}
+
+.profile-container p{
+    color: white;
+}
+
+.profile-container button{
+    font-size: 12px;
+    padding: 2px 14px;
+    background-color: darkcyan;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.i{
+    background-color: red;
+    width: 300px;
+}
+.fa-solid {
+    width: 100px;
+}
+

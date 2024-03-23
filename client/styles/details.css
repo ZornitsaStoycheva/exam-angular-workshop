@@ -1,0 +1,16 @@
+.details{
+    display: flex;
+    margin: 50px 8px;
+}
+
+.content-details{
+    margin: 50px 20px;
+}
+
+.content-details button{
+    font-size: 24px;
+    padding: 5px 20px;
+    background-color: darkcyan;
+    color: white;
+    margin-bottom: 10px;
+}

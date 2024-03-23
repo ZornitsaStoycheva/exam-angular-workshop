@@ -1,0 +1,30 @@
+.welcome{
+    width: 540px;
+    height: auto;
+    margin-left: 180px;
+    margin-top: 50px;
+}
+
+.welcome{
+    text-align: center;
+    border: solid 1px black;
+    padding-left:  7px;
+    padding-top: 7px;
+    padding-right: 7px;
+    border-radius: 8px;
+    background-color: lightgray;
+    margin-bottom: 20px;
+}
+
+.btn {
+    font-size: 18px;
+    padding: 5px 20px;
+    background-color: darkcyan;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn :hover{
+    color: black;
+    background-color: red;
+}

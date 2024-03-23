@@ -1,0 +1,29 @@
+<div class="login">
+    <h2>Login</h2>
+          <form #form="ngForm" (ngSubmit)="login(form)" class="form-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" value="" #inputEmail="ngModel" ngModel required email minlength="3" maxlength="15">
+
+              <div *ngIf="inputEmail.touched">
+                <p *ngIf="inputEmail.errors?.['required']" class="error">Email is required!</p>
+                <p *ngIf="inputEmail.errors?.['email']" class="error">Email is not valid!</p>
+                <p *ngIf="inputEmail.errors?.['minlength']" class="error">Min length is 3!</p>
+                <p *ngIf="inputEmail.errors?.['maxlength']" class="error">Max length is 15!</p>
+              </div>
+              
+  
+              <label for="password">Password</label>
+              <input type="password" id="password" name="current-password" value="" #inputCurrentPassword="ngModel" ngModel required minlength="3" maxlength="15">
+              <div *ngIf="inputCurrentPassword.touched">
+                <p *ngIf="inputCurrentPassword.errors?.['required']" class="error">Password is required!</p>
+                <p *ngIf="inputCurrentPassword.errors?.['email']" class="error">Password is not valid!</p>
+                <p *ngIf="inputCurrentPassword.errors?.['minlength']" class="error">Min length is 3!</p>
+                <p *ngIf="inputCurrentPassword.errors?.['maxlength']" class="error">Max length is 15!</p>
+              </div>
+              
+              <button [disabled]="form.invalid" [style]="{ backgroundColor: form.invalid ? 'grey' : 'blue'}">Login</button>
+              <p class="message">
+                Not registered? <a routerLink="/register">Create an account</a>
+              </p>
+          </form>
+  </div>

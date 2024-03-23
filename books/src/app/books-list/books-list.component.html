@@ -1,0 +1,29 @@
+
+
+<div class="home">
+
+    <div class="likes-container">
+        <h6>Most Liked Books</h6>
+        <div appHighlightBooksList *ngFor="let book of books" class="likes-content">
+            <p routerLink="/books/{{book._id}}" class="title">{{book.title}} - {{book.author}}</p>
+            <p class="likes-count">{{book.likes.length}} likes</p>
+        </div>
+
+        <!-- <div class="likes-content">
+            <a href="#" class="title">Title books kn</a>
+            <p class="likes-count">5 likes</p>
+        </div>
+        <div class="likes-content">
+            <a href="#" class="title">Title books kn</a>
+            <p class="likes-count">5 likes</p>
+        </div>
+        <div class="likes-content">
+            <a href="#" class="title">Title books kn</a>
+            <p class="likes-count">5 likes</p>
+        </div>
+        <div class="likes-content">
+            <a href="#" class="title">Title books kn</a>
+            <p class="likes-count">5 likes</p>
+        </div> -->
+    </div>
+</div>

@@ -1,0 +1,38 @@
+  /* home */
+
+  .home{
+    width: 540px;
+    height: auto;
+    margin-left: 180px;
+    margin-top: 50px;
+}
+
+.btn-container{
+    width: 540px;
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    padding-left:  7px;
+    padding-top: 15px;
+    padding-right: 7px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: 180px;
+}
+
+button {
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: rgb(243, 32, 32);
+    color: white;
+    margin-bottom: 22px;
+}
+
+button :hover{
+    color: black;
+    background-color: blue;
+}

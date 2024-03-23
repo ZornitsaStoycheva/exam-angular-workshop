@@ -1,0 +1,40 @@
+.create{
+    text-align: center;
+  margin-top: 5px;
+  position: relative;
+}
+
+.create-form{
+    padding-top: 1%;
+  display: inline-block;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  height: auto;
+  width: 35%;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: lightgray;
+}
+
+.create-form  label{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.create-form input{
+    background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 20px;
+}
+
+.create-form button{
+    font-size: 18px;
+    padding: 5px 20px;
+    background-color: darkcyan;
+    color: white;
+    margin-bottom: 10px;
+}

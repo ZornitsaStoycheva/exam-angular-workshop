@@ -1,0 +1,35 @@
+<div class="edit-title">
+    <form class='editForm' method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="">
+            <p class="error">Title is required!</p>
+            <p class="error">Min length is 3!</p>
+            <p class="error">Max lenhth is 30!</p>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" value="">
+            <p class="error">Author is required!</p>
+            <p class="error">Min length is 3!</p>
+            <p class="error">Max lenhth is 15!</p>
+
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image" value="">
+            <p class="error">Image is required!</p>
+            <p class="error">Min length is 3!</p>
+            <p class="error">Max lenhth is 50!</p>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="">     
+            <p class="error">Email is required!</p>
+            <p class="error">Min length is 3!</p>
+            <p class="error">Max lenhth is 150!</p>  
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="">
+            <p class="error">Price is required!</p>
+            <p class="error">Min length is 2!</p>
+            <p class="error">Max lenhth is 10!</p>
+
+        <button routerLink="/books">Edit</button>
+    </form>
+  </div>
