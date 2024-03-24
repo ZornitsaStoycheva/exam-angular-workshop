@@ -11,13 +11,13 @@ import { BehaviorSubject, Subscription, tap } from 'rxjs';
 export class UserService implements OnDestroy {
  
   
-  private user$$ = new BehaviorSubject<User |undefined>(undefined);
+  private user$$ = new BehaviorSubject<User | undefined>(undefined);
   public user$ = this.user$$.asObservable();
 
   user: User | undefined
   USER_KEY = '[user]';
 
-  get isLogged(): boolean {
+  get isAuthenticated(): boolean {
     return !!this.user
   }
 
@@ -27,16 +27,18 @@ export class UserService implements OnDestroy {
     
     this.subscription = this.user$.subscribe((user) => {
       this.user = user;
-      console.log(this.user)
-      console.log('[user]')
+      this.USER_KEY = user?._id || '';
+      console.log(this.USER_KEY)
+      console.log(this.user?.username)
+      
     })
-    // try {
-    //   const lsUser = localStorage.getItem(this.USER_KEY) || '';
-    //   this.user = JSON.parse(lsUser);
+    try {
+      const lsUser = localStorage.getItem(this.USER_KEY) || '';
+      this.user = JSON.parse(lsUser);
 
-    // } catch (error) {
-    //   this.user = undefined;
-    // }
+    } catch (error) {
+      this.user = undefined;
+    }
     }
 
    login(email: string, password: string) {
@@ -58,7 +60,7 @@ export class UserService implements OnDestroy {
    }
 
    updateProfile(username:string, email: string) {
-    return this.http.put<User>('/api/users/profile', { username, email })
+    return this.http.put<User>('/api/users/profile', { username, email, user:this.user?._id })
     .pipe(tap((user) => this.user$$.next(user)))
    }
 

@@ -25,7 +25,7 @@ exports.getAllPosts = (ownerId) => Book.find({ owner: ownerId}).populate('owner'
 
 exports.addLikes = async (bookId, userId) => {
     const book = await this.getOne(bookId);
-    const isValid = book.likes.some((like) => console.log(like));//vote?.toString() === userId);
+    const isValid = book.likes.some((like) => console.log(like));
     console.log(isValid)
     if(!isValid) {
         return;

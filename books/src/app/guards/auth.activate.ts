@@ -7,7 +7,7 @@ import { UserService } from "../user/user.service";
 export class AuthActivate implements CanActivate {
     constructor(private userService: UserService) {}
         canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-            return this.userService.isLogged;
+            return this.userService.isAuthenticated;
             
         }
 }

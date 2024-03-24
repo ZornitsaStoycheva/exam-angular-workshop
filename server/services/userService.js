@@ -3,9 +3,9 @@ const { SECRET } = require('../config/config');
 const bcrypt = require('bcrypt');
 const jwt = require('../lib/jwt');
 
-exports.getProfile = (userId) => User.findById(userId);
+exports.getProfile = (userId) => User.findOne(userId);
 
-exports.editProfile = (userId) => User.findByIdAndUpdate(userId);
+exports.editProfile = (userId, userData) => User.findByIdAndUpdate(userId, userData, { runValidators: true});
 
 exports.register = async (authData) => {
     const {email, password, rePassword } = authData;
@@ -24,7 +24,7 @@ exports.register = async (authData) => {
 }
 
 exports.login = async (authData) => {
-    const {email, password } = authData;
+    const {email, password, username } = authData;
     const user = await User.findOne({ email: authData.email });
 
     if(!user) {
@@ -39,7 +39,8 @@ exports.login = async (authData) => {
 
     const payload = {
         _id: user._id,
-        email: user.email
+        email: user.email,
+        username: user.username
     }
 
     //const token = await generationToken(payload)

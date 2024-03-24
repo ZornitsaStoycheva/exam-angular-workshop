@@ -9,7 +9,7 @@ import { Book } from 'src/app/types/book';
   styleUrls: ['./current-book.component.css']
 })
 export class CurrentBookComponent implements OnInit{
-  isBuying = false;
+  
   book = {} as Book as any;
   constructor(private apiService: ApiService, private activateRoute: ActivatedRoute) {}
 

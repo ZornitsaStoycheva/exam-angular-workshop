@@ -48,21 +48,26 @@ router.post('/logout', auth, (req, res) => {
 })
 //router.use('/logout', userService.logout)
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', auth, async (req, res) => {
+    const userId = req.params.userId;
+    const token = req.body;
     try {
-        const id = await userService.getProfile(req.params._id);
+        const id = await userService.getProfile(userId);
         res.json(id);
+        
     } catch (err) {
         res.status(400)
         .json({ message: err.message })
     }
 })
 
-router.put('/profile', async (req, res) => {
+router.put('/profile', auth, async (req, res) => {
+    const id = req.params.userId;
+    const userData = req.body;
     try {
-        const id = req.params._id;
-        await userService.editProfile(id, req.body);
-        res.status(204).end();
+
+        const auth = await userService.editProfile(id, userData);
+        res.status(204).json(auth);
 
     } catch (err) {
         res.status(400)

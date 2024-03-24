@@ -1,5 +1,7 @@
-
-<div class="books">
+<div *ngIf="isLoading">
+    <app-loader />
+</div>
+<div *ngIf="!isLoading" class="books">
     <div *ngFor="let book of books" class="books-container">
         <a routerLink="/books/{{book._id}}"><img src="{{book.image}}" alt=""></a>
        

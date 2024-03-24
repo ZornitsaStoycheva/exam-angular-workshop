@@ -7,14 +7,13 @@ import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserModule } from './user/user.module';
 import { BookModule } from './book/book.module';
 import { ErrorComponent } from './error/error.component';
-import { BooksListBuyComponent } from './books-list-buy/books-list-buy.component';
 import { HighlightBooksListDirective } from './highlight-books-list.directive';
 import { appInterceptorProvider } from './app-interceptors';
 import { HomeComponent } from './home/home.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { HelpSharedModule } from './help-shared/help-shared.module';
 
 
 @NgModule({
@@ -23,7 +22,6 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     MainComponent,
     BooksListComponent,
     ErrorComponent,
-    BooksListBuyComponent,
     HighlightBooksListDirective,
     HomeComponent,
     AuthenticateComponent,
@@ -32,10 +30,9 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     BrowserModule,
     CoreModule,
     HttpClientModule,
-    //UserModule,
     BookModule,
     AppRoutingModule,
-    
+    HelpSharedModule
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

@@ -1,5 +1,9 @@
 
-<div class="books">
+<div *ngIf="isLoading">
+    <app-loader />
+</div>
+<div *ngIf="!isLoading" class="books">
+    
     <div appHighlight *ngFor="let book of books" class="books-container">
         <img src="{{book.image}}" alt="">
         <h4>{{book.title}}</h4>

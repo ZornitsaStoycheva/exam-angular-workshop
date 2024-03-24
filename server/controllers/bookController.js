@@ -7,14 +7,14 @@ router.get('/', async (req, res) => {
     res.json(books);
 })
 
-router.post('/create', auth, async (req, res) => {
+router.post('/create', async (req, res) => {
     const book = req.body;
-
+    const userId = req.user._id;
     try {
-        const token = await bookService.create(req.user._id, book)
-        // await bookService.create({
-        //     ...req.body,
-        //     owner: req.user._id});
+        const token = await bookService.create(userId, book)
+        await bookService.create({
+            ...book,
+            owner: userId});
         res.status(204).json(token)
 
     } catch (err) {

@@ -9,6 +9,9 @@ import { HighlightDirective } from './highlight.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { ShortenPipe } from './books/shorten.pipe';
+import { LoaderComponent } from '../help-shared/loader/loader.component';
+import { HelpSharedModule } from '../help-shared/help-shared.module';
+
 
 
 
@@ -20,13 +23,15 @@ import { ShortenPipe } from './books/shorten.pipe';
     MyPublishComponent,
     HighlightDirective,
     EditBookComponent,
-    ShortenPipe
+    ShortenPipe,
+
   ],
   imports: [
     CommonModule,
     BookRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HelpSharedModule
   ]
 })
 export class BookModule { }

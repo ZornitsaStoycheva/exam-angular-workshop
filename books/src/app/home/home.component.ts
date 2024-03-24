@@ -10,12 +10,17 @@ import { ApiService } from '../api.service';
 export class HomeComponent implements OnInit{
 
   books: Book[] = [];
+  isLoading: boolean = true;
   constructor(private api: ApiService) {}
   
   ngOnInit(): void {
-    this.api.getBooks().subscribe((books) => {
-      let reservedBooks = books.slice(-6).reverse();
-      this.books = reservedBooks;
+    this.api.getBooksHome().subscribe((books) => {
+      let lastBooks = books.slice(0, 3);
+      this.books = lastBooks;
+
+      setTimeout(() => {
+        this.isLoading = false
+      }, 3000)
     })
   }
 

@@ -10,7 +10,7 @@ import { UserService } from 'src/app/user/user.service';
 export class HeaderComponent {
 
   get isLoggedIn(): boolean {
-    return this.userService.isLogged
+    return this.userService.isAuthenticated
   }
 
   get username(): string {

@@ -7,12 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
   isShownLikesBooks: boolean = false;
-  isShownBuyBooks: boolean = false;
 
   toggleLikeBooks() {
     this.isShownLikesBooks = !this.isShownLikesBooks;
   }
-  toggleBuyBooks() {
-    this.isShownBuyBooks = !this.isShownBuyBooks;
-  }
+  
 }

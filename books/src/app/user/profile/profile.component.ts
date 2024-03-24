@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
- 
+ user = this.userService.user?._id;
 
   showEditMode: boolean = false;
   profile: Prifile = {
