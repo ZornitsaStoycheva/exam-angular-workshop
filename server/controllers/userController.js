@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
-const { auth } = require('../middlewares/authMiddleware');
+const { auth, isAuth } = require('../middlewares/authMiddleware');
 
 // router.get('/', async (req, res) => {
 //     const users = await userService.getUsers();
@@ -48,8 +48,8 @@ router.post('/logout', auth, (req, res) => {
 })
 //router.use('/logout', userService.logout)
 
-router.get('/profile', auth, async (req, res) => {
-    const userId = req.params.userId;
+router.get('/profile', async (req, res) => {
+    const userId = req.user._id;
     const token = req.body;
     try {
         const id = await userService.getProfile(userId);
@@ -61,7 +61,7 @@ router.get('/profile', auth, async (req, res) => {
     }
 })
 
-router.put('/profile', auth, async (req, res) => {
+router.put('/profile', async (req, res) => {
     const id = req.params.userId;
     const userData = req.body;
     try {
@@ -75,8 +75,8 @@ router.put('/profile', auth, async (req, res) => {
     }
 })
 
-router.get('/logout', (req, res) => {
-    res.end();
-})
+// router.get('/logout', (req, res) => {
+//     res.end();
+// })
 
 module.exports = router;

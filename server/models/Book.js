@@ -32,24 +32,21 @@ const bookSchema = new mongoose.Schema({
         minLength: 2,
         maxLength: 10
     },
-    createdAt: {
-        type: Date
-      },
-    owner: {
+    owner: [{
         type: mongoose.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     likes: [{
         type: mongoose.Types.ObjectId,
         ref: 'User'}],
     buyBook: []
 })
 
-bookSchema.pre('save', function() {
-    if(!this.createdAt) {
-        this.createdAt = Date.now();
-    }
-})
+// bookSchema.pre('save', function() {
+//     if(!this.createdAt) {
+//         this.createdAt = Date.now();
+//     }
+// })
 
 const Book = mongoose.model('Book', bookSchema);
 

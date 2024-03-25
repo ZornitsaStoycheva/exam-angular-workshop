@@ -7,14 +7,11 @@ router.get('/', async (req, res) => {
     res.json(books);
 })
 
-router.post('/create', async (req, res) => {
-    const book = req.body;
-    const userId = req.user._id;
+router.post('/', async (req, res) => {
+   const bookData = req.body;
     try {
-        const token = await bookService.create(userId, book)
-        await bookService.create({
-            ...book,
-            owner: userId});
+        const token = await bookService.create(bookData)
+        
         res.status(204).json(token)
 
     } catch (err) {
@@ -47,7 +44,7 @@ router.put('/:bookId/edit', async (req, res) => {
     }
 })
 
-router.delete('/:bookId/delete', async (req, res) => {
+router.delete('/delete/:bookId', async (req, res) => {
     try {
         await bookService.delete(req.params.bookId);
         res.status(204).end();

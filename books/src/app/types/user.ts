@@ -15,7 +15,8 @@ export interface AuthUser {
     email: string,
     password: string,
     rePasword: string,
-    username: string
+    username: string,
+    _id: string
 }
 
 export interface UserId {

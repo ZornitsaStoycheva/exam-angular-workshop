@@ -21,21 +21,32 @@ exports.auth = async (req, res, next) => {
     }
 }
 
-function getToken(req, res, next) {
-    const token =  req.cookies['auth'];
+// function getToken async(req, res, next) {
+//     const token =  req.cookies['auth'];
 
-    if(!token) {
-        return next();
-    }
+//     if(token) {
+//         const decodedToken = await jwt.verify(token, SECRET);
+//         req.user = decodedToken;
+//         res.user = decodedToken;
+//         const user = res.user = decodedToken;
+//         return user;;
+//     }
 
-
-}
+// next();
+// }
 
 exports.isAuth = async (req, res, next) => {
-    if(!req.user) {
-        return res.redirect('/auth/login')
+    const token =  req.cookies['auth'];
+
+    if(token) {
+        const decodedToken = await jwt.verify(token, SECRET);
+        req.user = decodedToken;
+        res.user = decodedToken;
+        const user = res.user = decodedToken;
+        return user;;
     }
-    next();
+
+next();
 }
 
 exports.isGuest = (req, res, next) => {

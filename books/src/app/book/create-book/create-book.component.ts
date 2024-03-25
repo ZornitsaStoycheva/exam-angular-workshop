@@ -52,9 +52,10 @@ export class CreateBookComponent {
     if (this.createForm.invalid) {
       return;
     }
-  
+  console.log(this.createForm.value)
 
     const { title, author, image, description, price } = this.createForm.value;
+    console.log({ title, author, image, description, price })
     this.apiService.createBook(title!, author!, image!, description!, price!).subscribe(() => {
       this.router.navigate(['/books']);
     });

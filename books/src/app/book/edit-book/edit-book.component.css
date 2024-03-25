@@ -1,25 +1,25 @@
 .edit-title {
-    text-align: center;
+  text-align: center;
   margin-top: 5px;
   position: relative;
-  padding-bottom: 5%;
 }
 
 
 .editForm {
-    padding-top: 1%;
-    display: inline-block;
-    margin-top: 2%;
-    margin-bottom: 4%;
-    height: auto;
-    width: 35%;
-    border: 1px solid black;
-    border-radius: 7px;
-    background-color: lightgray;
-  }
+  padding-top: 1%;
+  display: inline-block;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  height: auto;
+  width: 35%;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: lightgray;
+}
   
   
   .editForm label {
+    margin-right: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
     color: white;

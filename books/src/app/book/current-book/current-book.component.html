@@ -9,9 +9,13 @@
         <p>{{book.author}}</p>
         <p>{{book.description}}</p>
         <p>{{book.price}}$</p>
-        <button routerLink="/books/edit/{{book._id}}">Edit</button>
-        <button type="submit">Delete</button>
+        <div >
+            <button routerLink="/books/edit/{{book._id}}">Edit</button>
+            <button (click)="onDelete(book._id)" type="submit">Delete</button>
+        </div>
+        <!-- <button routerLink="/books/edit/{{book._id}}">Edit</button>
+        <button type="submit">Delete</button> -->
         <button type="submit">Like</button>
-        <p>Your order has been sent!</p>
+        <p *ngIf="!like">Your order has been sent!</p>
     </div>
   </div>

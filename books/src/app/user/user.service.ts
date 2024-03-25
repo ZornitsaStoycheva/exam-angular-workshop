@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { AuthUser, User } from '../types/user';
+import { AuthUser, User, UserId } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
@@ -15,11 +15,11 @@ export class UserService implements OnDestroy {
   public user$ = this.user$$.asObservable();
 
   user: User | undefined
-  USER_KEY = '[user]';
+  USER_KEY = '[authUser]';
 
-  get isAuthenticated(): boolean {
-    return !!this.user
-  }
+  // get isAuthenticated(): boolean {
+  //   return !!this.user
+  // }
 
    subscription: Subscription;
 
@@ -32,13 +32,11 @@ export class UserService implements OnDestroy {
       console.log(this.user?.username)
       
     })
-    try {
-      const lsUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(lsUser);
-
-    } catch (error) {
-      this.user = undefined;
+  
     }
+
+    get isAuthenticated(): boolean {
+      return !!this.user
     }
 
    login(email: string, password: string) {
@@ -60,7 +58,7 @@ export class UserService implements OnDestroy {
    }
 
    updateProfile(username:string, email: string) {
-    return this.http.put<User>('/api/users/profile', { username, email, user:this.user?._id })
+    return this.http.put<User>('/api/users/profile', { username, email})
     .pipe(tap((user) => this.user$$.next(user)))
    }
 

@@ -4,14 +4,11 @@ const User = require('../models/User');
 
 exports.getAll = () => Book.find();
 
-exports.create = async (userId, bookData) => {
-    const createBook = await Book.create({
-        owner: userId,
-        ...bookData
-    })
+exports.create = async ( bookData) => {
+    const createBook = await Book.create(bookData)
 
     //await User.findByIdAndUpdate(userId, {$push: { createBook: createBook._id}});
-
+    
     return createBook;
 }
 

@@ -3,7 +3,7 @@
     <h2>Add Book</h2>
     <form [formGroup]="createForm" (ngSubmit)="create()" class="create-form" method="POST">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="" #inputTitle formControlName="title" minlength="3" maxlength="30" required>
+        <input type="text" id="title" name="title" value="" formControlName="title" minlength="3" maxlength="30" required>
 
         <div *ngIf="createForm.get('title')?.touched">
             <p *ngIf="createForm.get('title')?.errors?.['required']" class="error">Title is required!</p>
@@ -13,7 +13,7 @@
 
 
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author" value="" #inputAuthor formControlName="author" minlength="3" maxlength="15" required>
+        <input type="text" id="author" name="author" value=""  formControlName="author" minlength="3" maxlength="15" required>
         <div *ngIf="createForm.get('author')?.touched">
             <p *ngIf="createForm.get('author')?.errors?.['required']" class="error">Author is required!</p>
             <p *ngIf="createForm.get('author')?.errors?.['minlength']" class="error">Min length is 3!</p>
@@ -21,7 +21,7 @@
           </div>
 
         <label for="image">Image:</label>
-        <input type="text" id="image" name="image" value="" #inputImage formControlName="image" minlength="3" maxlength="50" required>
+        <input type="text" id="image" name="image" value=""  formControlName="image" minlength="3" maxlength="50" required>
         <div *ngIf="createForm.get('image')?.touched">
             <p *ngIf="createForm.get('image')?.errors?.['required']" class="error">Image is required!</p>
             <p *ngIf="createForm.get('image')?.errors?.['minlength']" class="error">Min length is 3!</p>
@@ -29,7 +29,7 @@
           </div>
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="" #inputDescription formControlName="description" minlength="3" maxlength="150" required>      
+        <input type="text" id="description" name="description" value="" n formControlName="description" minlength="3" maxlength="150" required>      
         <div *ngIf="createForm.get('description')?.touched">
             <p *ngIf="createForm.get('description')?.errors?.['required']" class="error">Description is required!</p>
             <p *ngIf="createForm.get('description')?.errors?.['minlength']" class="error">Min length is 3!</p>
@@ -37,7 +37,7 @@
           </div> 
         
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" value="" #inputPrice formControlName="price" minlength="2" maxlength="10" required>
+        <input type="text" id="price" name="price" value=""  formControlName="price" minlength="2" maxlength="10" required>
         <div *ngIf="createForm.get('price')?.touched">
             <p *ngIf="createForm.get('price')?.errors?.['required']" class="error">Price is required!</p>
             <p *ngIf="createForm.get('price')?.errors?.['minlength']" class="error">Min length is 2!</p>
@@ -45,7 +45,7 @@
           </div>
         
 
-        <button [disabled]="createForm.invalid" [style]="{ backgroundColor: createForm.invalid ? 'grey' : 'blue'}">Add</button>
+        <button  [disabled]="createForm.invalid" [style]="{ backgroundColor: createForm.invalid ? 'grey' : 'blue'}">Add</button>
     </form>
   
 </div>
