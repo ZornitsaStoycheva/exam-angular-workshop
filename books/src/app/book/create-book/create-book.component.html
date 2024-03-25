@@ -29,7 +29,7 @@
           </div>
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="" n formControlName="description" minlength="3" maxlength="150" required>      
+        <input type="text" id="description" name="description" value=""  formControlName="description" minlength="3" maxlength="150" required>      
         <div *ngIf="createForm.get('description')?.touched">
             <p *ngIf="createForm.get('description')?.errors?.['required']" class="error">Description is required!</p>
             <p *ngIf="createForm.get('description')?.errors?.['minlength']" class="error">Min length is 3!</p>

@@ -31,12 +31,12 @@ router.get('/:bookId', async (req, res) => {
     }
 })
 
-router.put('/:bookId/edit', async (req, res) => {
+router.put('/edit/:bookId', async (req, res) => {
     try {
         const bookId = req.params.bookId;
         const book = req.body;
-        await bookService.update(bookId, book);
-        res.status(204).end();
+        const editBook = await bookService.update(bookId, book);
+        res.status(204).json(editBook);
 
     } catch (err) {
         res.status(400)

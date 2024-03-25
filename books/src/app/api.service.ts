@@ -38,13 +38,18 @@ export class ApiService {
     return this.http.post(`${apiUrl}/books/`, payload)
   }
 
+  onEditBookValue(id: string, title: string, author: string, image: string, description: string, price: string) {
+    const booData = {title, author, image, description, price}
+    return this.http.put<Book>(`/api/books/edit/${id}`, booData);
+  }
+
   onDelete(id:string) {
     return this.http.delete<Book>(`/api/books/delete/${id}`);
   }
 
-  getLikeBook(id: string) {
-    return this.http.get<Book>(`/api/books/${id}/like`)
-  }
+  // getLikeBook(id: string) {
+  //   return this.http.get<Book>(`/api/books/${id}/like`)
+  // }
 
   getMyPublish() {
     const { apiUrl } = environment;
